@@ -7,7 +7,7 @@ import Home from "../pages/Home";
 function Routes() {
   return (
     <Router>
-      <div>
+      <>
         <Switch>
           <Route exact path="/">
             <Index></Index>
@@ -16,7 +16,7 @@ function Routes() {
             <Home></Home>
           </Route>
         </Switch>
-      </div>
+      </>
     </Router>
   );
 }

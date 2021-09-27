@@ -6,14 +6,17 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: "80px 2rem",
+    padding: "2.5rem 2rem",
     display: "flex",
     alignContent: "center",
     flexDirection: "column",
+    justifyContent: "center",
+    height: "100vh",
   },
   image: {
     width: "90%",
     margin: "30px auto",
+    height: "200px"
   },
   buttonPanel: {
     display: "flex",
@@ -29,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Index() {
   const classes = useStyles();
+  
   return (
     <div className={classes.root}>
       <Typography variant="h3" align="center" className="fadeInRight">
@@ -49,7 +53,7 @@ export default function Index() {
           fullWidth
           sx={{ boxShadow: 15 }}
         >
-          IR
+         START!
         </Button>
       </Link>
       <div className={classes.buttonPanel + " fadeIn fourth"}>
