@@ -6,11 +6,10 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: "80px 0",
+    padding: "80px 2rem",
     display: "flex",
     alignContent: "center",
     flexDirection: "column",
-    height: "100vh",
   },
   image: {
     width: "90%",
@@ -24,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     textDecoration: "none",
     width: "100%",
-    marginTop: 20
+    marginTop: 20,
   },
 }));
 
@@ -32,14 +31,20 @@ export default function Index() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Typography variant="h3" align="center">
-        BookReader
+      <div className="fadeInRight">
+        <Typography
+          variant="h3"
+          align="center"
+          className="fadeIn first"
+        >
+          BookReader
+        </Typography>
+      </div>
+      <img src="/indexVector.svg" alt="" className={classes.image + ' fadeIn second'} />
+      <Typography variant="body1" align="center" className="fadeIn third">
+        The best site to read your pdfs books, I hope you enjoy. 💜
       </Typography>
-      <img src="/indexVector.svg" alt="" className={classes.image} />
-      <Typography variant="body1" align="center">
-        Tu lugar para leer PDFS de la mejor manera.
-      </Typography>
-      <Link to="/home" className={classes.link}>
+      <Link to="/home" className={classes.link + ' fadeIn fourth'}>
         <Button
           variant="contained"
           size="large"
@@ -49,7 +54,7 @@ export default function Index() {
           IR
         </Button>
       </Link>
-      <div className={classes.buttonPanel}>
+      <div className={classes.buttonPanel + ' fadeIn fourth'}>
         <Button variant="text" fullWidth>
           About
         </Button>
