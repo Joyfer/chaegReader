@@ -4,8 +4,8 @@
 .fadeInRight {
   -webkit-animation-name: fadeInRight;
   animation-name: fadeInRight;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
+  -webkit-animation-duration: 1.4s;
+  animation-duration: 1.4s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
@@ -23,8 +23,12 @@
 
 @keyframes fadeInRight {
   0% {
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
+    -webkit-transform: translate3d(100%, 200%, 0) scale(1.4);
+    transform: translate3d(100%, 200%, 0) scale(1.4);
+  }
+  50% {
+    -webkit-transform: translate3d(0, 200%, 0) scale(1.4);
+    transform: translate3d(0, 200%, 0) scale(1.4);
   }
   100% {
     -webkit-transform: none;
@@ -80,19 +84,19 @@
 }
 
 .fadeIn.second {
-  -webkit-animation-delay: 1.2s;
-  -moz-animation-delay: 1.2s;
-  animation-delay: 1.2s;
+  -webkit-animation-delay: 1.4s;
+  -moz-animation-delay: 1.4s;
+  animation-delay: 1.4s;
 }
 
 .fadeIn.third {
-  -webkit-animation-delay:1.4s;
-  -moz-animation-delay:1.4s;
-  animation-delay:1.4s;
-}
-
-.fadeIn.fourth {
   -webkit-animation-delay: 1.6s;
   -moz-animation-delay: 1.6s;
   animation-delay: 1.6s;
+}
+
+.fadeIn.fourth {
+  -webkit-animation-delay: 1.8s;
+  -moz-animation-delay: 1.8s;
+  animation-delay: 1.8s;
 }

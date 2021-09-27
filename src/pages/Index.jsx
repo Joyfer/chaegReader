@@ -31,20 +31,18 @@ export default function Index() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <div className="fadeInRight">
-        <Typography
-          variant="h3"
-          align="center"
-          className="fadeIn first"
-        >
-          BookReader
-        </Typography>
-      </div>
-      <img src="/indexVector.svg" alt="" className={classes.image + ' fadeIn second'} />
+      <Typography variant="h3" align="center" className="fadeInRight">
+        책Reader
+      </Typography>
+      <img
+        src="/indexVector.svg"
+        alt=""
+        className={classes.image + " fadeIn second"}
+      />
       <Typography variant="body1" align="center" className="fadeIn third">
         The best site to read your pdfs books, I hope you enjoy. 💜
       </Typography>
-      <Link to="/home" className={classes.link + ' fadeIn fourth'}>
+      <Link to="/home" className={classes.link + " fadeIn fourth"}>
         <Button
           variant="contained"
           size="large"
@@ -54,7 +52,7 @@ export default function Index() {
           IR
         </Button>
       </Link>
-      <div className={classes.buttonPanel + ' fadeIn fourth'}>
+      <div className={classes.buttonPanel + " fadeIn fourth"}>
         <Button variant="text" fullWidth>
           About
         </Button>
