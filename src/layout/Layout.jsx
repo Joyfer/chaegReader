@@ -6,16 +6,14 @@ const useStyles = makeStyles((theme) => ({
   root: {
     padding: "1rem 0",
   },
-  header: {
-    padding: "1rem 0",
-  },
+  header: {},
 }));
 
 const Layout = (props) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Typography variant="h3" className={classes.header + " fadeIn first"}>
+      <Typography variant="h4" className={classes.header + " fadeIn first"}>
         책Reader
       </Typography>
       <>{props.children}</>
