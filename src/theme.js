@@ -1,5 +1,6 @@
 import { red } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
+import { grey } from '@mui/material/colors';
 
 // A custom theme for this app
 const theme = createTheme({
@@ -13,6 +14,9 @@ const theme = createTheme({
     error: {
       main: red.A400,
     },
+    subText: {
+      main: grey[600]
+    }
   },
   typography: {
     fontFamily: ["Rubik", "sans-serif"].join(","),
