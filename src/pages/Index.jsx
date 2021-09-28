@@ -3,6 +3,7 @@ import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import ReadPDF from "../../public/pdfReader";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   image: {
     width: "90%",
     margin: "30px auto",
-    height: "200px"
+    height: "200px",
   },
   buttonPanel: {
     display: "flex",
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Index() {
   const classes = useStyles();
-  
+
   return (
     <div className={classes.root}>
       <Typography variant="h3" align="center" className="fadeInRight">
@@ -53,11 +54,17 @@ export default function Index() {
           fullWidth
           sx={{ boxShadow: 15 }}
         >
-         START!
+          START!
         </Button>
       </Link>
       <div className={classes.buttonPanel + " fadeIn fourth"}>
-        <Button variant="text" fullWidth>
+        <Button
+          variant="text"
+          fullWidth
+          onClick={() =>
+            ReadPDF("Las_meditaciones_de_Marco_Aurelio-Marco_Aurelio", 4)
+          }
+        >
           About
         </Button>
         <Button variant="text" fullWidth>

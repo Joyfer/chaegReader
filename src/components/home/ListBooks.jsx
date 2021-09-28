@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
 
 const ListBooks = () => {
   const classes = useStyles();
-  // Set the height of div helping to spacing the absolute div from list
-  // Using the list height
+  // Set the height of helping div spacing the absolute div from list
+  // Using the list height by useRef
   const ListBookDiv = useRef(null);
   const [heightDivList, setHeightDivList] = useState(280);
 
@@ -34,7 +34,7 @@ const ListBooks = () => {
       <Typography variant="h5">Public books</Typography>
       <div className={classes.list} ref={ListBookDiv}>
         {[1, 2, 3, 4, 5, 6, 7].map((el) => (
-          <CoverPage></CoverPage>
+          <CoverPage key={el}></CoverPage>
         ))}
       </div>
       {/* Div helper for spacing absolute list div */}

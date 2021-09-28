@@ -9,8 +9,8 @@ const useStyles = makeStyles((theme) => ({
     padding: "1rem 0",
   },
   list: {
-    marginBottom: "1rem"
-  }
+    margin: "1rem 0",
+  },
 }));
 
 const Home = () => {
@@ -19,8 +19,8 @@ const Home = () => {
   return (
     <Layout>
       <div className={classes.root}>
-        {[1, 2].map((el) => (
-          <div className={classes.list}>
+        {[1].map((el) => (
+          <div key={el} className={classes.list}>
             <ListBooks></ListBooks>
           </div>
         ))}

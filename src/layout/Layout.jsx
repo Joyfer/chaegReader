@@ -6,7 +6,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     padding: "1rem 0",
   },
-  header: {},
+  header: {
+    marginTop: "1rem"
+  },
 }));
 
 const Layout = (props) => {
