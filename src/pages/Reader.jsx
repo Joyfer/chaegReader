@@ -6,9 +6,9 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
-  fontBook: {
-    fontSize: "24px",
+  root: {
+    paddingBottom: "65px",
+    paddingTop: "1rem",
   },
 }));
 
@@ -17,6 +17,20 @@ const Reader = () => {
 
   const [text, setText] = useState(undefined);
   const [pageNumber, setPageNumber] = useState(2);
+  const [fontSize, setFontSize] = useState(18)
+
+  const changePage = (action) => {
+    switch (action) {
+      case "next":
+        setPageNumber(pageNumber + 1);
+        break;
+      case "preview":
+        if (pageNumber != 1) {
+          setPageNumber(pageNumber - 1);
+        }
+        break;
+    }
+  };
 
   useEffect(() => {
     // Loaded via <script> tag, create shortcut to access PDF.js exports.
@@ -27,7 +41,7 @@ const Reader = () => {
   }, []);
 
   useEffect(() => {
-    ReadPDF("Las_meditaciones_de_Marco_Aurelio-Marco_Aurelio", 4).promise.then(
+    ReadPDF("Las_meditaciones_de_Marco_Aurelio-Marco_Aurelio").promise.then(
       function (pdf) {
         console.log("PDF loaded");
         getPageText(pageNumber, pdf).then(function (textPage) {
@@ -43,11 +57,11 @@ const Reader = () => {
   }, [pageNumber]);
 
   return (
-    <div>
-      <Typography variant="body1" className={classes.fontBook}>
+    <div className={classes.root}>
+      <Typography variant="body1" style={{fontSize: fontSize + 'px'}}>
         {text}
       </Typography>
-      <BottomBar></BottomBar>
+      <BottomBar changePage={changePage}></BottomBar>
     </div>
   );
 };
