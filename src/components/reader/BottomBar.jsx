@@ -20,11 +20,11 @@ const useStyles = makeStyles((theme) => ({
   root: {},
   listText: {
     textTransform: "capitalize",
-    padding: "0 1rem"
+    padding: "0 1rem",
   },
 }));
 
-const BottomBar = ({ changePage }) => {
+const BottomBar = ({ changePage, changeFontSize }) => {
   const classes = useStyles();
 
   return (
@@ -40,8 +40,8 @@ const BottomBar = ({ changePage }) => {
           <IconButtonMenu>
             {["large", "medium", "small"].map((el) => {
               return (
-                <MenuItem key={el}>
-                  <ListItemIcon style={{justifyContent: "center"}}>
+                <MenuItem key={el} onClick={() => changeFontSize(el)}>
+                  <ListItemIcon style={{ justifyContent: "center" }}>
                     <FontDownloadRoundedIcon fontSize={el} />
                   </ListItemIcon>
                   <ListItemText className={classes.listText}>{el}</ListItemText>

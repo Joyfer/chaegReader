@@ -17,7 +17,7 @@ const Reader = () => {
 
   const [text, setText] = useState(undefined);
   const [pageNumber, setPageNumber] = useState(2);
-  const [fontSize, setFontSize] = useState(18)
+  const [fontSize, setFontSize] = useState(16);
 
   const changePage = (action) => {
     switch (action) {
@@ -28,6 +28,20 @@ const Reader = () => {
         if (pageNumber != 1) {
           setPageNumber(pageNumber - 1);
         }
+        break;
+    }
+  };
+
+  const changeFontSize = (fontSize) => {
+    switch (fontSize) {
+      case "large":
+        setFontSize(24);
+        break;
+      case "medium":
+        setFontSize(16);
+        break;
+      case "small":
+        setFontSize(12);
         break;
     }
   };
@@ -58,10 +72,13 @@ const Reader = () => {
 
   return (
     <div className={classes.root}>
-      <Typography variant="body1" style={{fontSize: fontSize + 'px'}}>
+      <Typography variant="body1" style={{ fontSize: fontSize + "px" }}>
         {text}
       </Typography>
-      <BottomBar changePage={changePage}></BottomBar>
+      <BottomBar
+        changePage={changePage}
+        changeFontSize={changeFontSize}
+      ></BottomBar>
     </div>
   );
 };
