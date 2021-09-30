@@ -30,25 +30,31 @@ const BottomBar = ({ changePage, changeFontSize }) => {
   return (
     <AppBar position="fixed" color="primary" sx={{ top: "auto", bottom: 0 }}>
       <AppBar position="static">
-        <Toolbar>
-          <IconButton color="inherit" onClick={() => changePage("preview")}>
-            <KeyboardArrowLeftRoundedIcon />
-          </IconButton>
-          <IconButton color="inherit" onClick={() => changePage("next")}>
-            <KeyboardArrowRightRoundedIcon />
-          </IconButton>
-          <IconButtonMenu>
-            {["large", "medium", "small"].map((el) => {
-              return (
-                <MenuItem key={el} onClick={() => changeFontSize(el)}>
-                  <ListItemIcon style={{ justifyContent: "center" }}>
-                    <FontDownloadRoundedIcon fontSize={el} />
-                  </ListItemIcon>
-                  <ListItemText className={classes.listText}>{el}</ListItemText>
-                </MenuItem>
-              );
-            })}
-          </IconButtonMenu>
+        <Toolbar sx={{ justifyContent: "space-between" }}>
+          <div>
+            <IconButton color="inherit" onClick={() => changePage("preview")}>
+              <KeyboardArrowLeftRoundedIcon />
+            </IconButton>
+            <IconButton color="inherit" onClick={() => changePage("next")}>
+              <KeyboardArrowRightRoundedIcon />
+            </IconButton>
+          </div>
+          <div>
+            <IconButtonMenu>
+              {["large", "medium", "small"].map((el) => {
+                return (
+                  <MenuItem key={el} onClick={() => changeFontSize(el)}>
+                    <ListItemIcon style={{ justifyContent: "center" }}>
+                      <FontDownloadRoundedIcon fontSize={el} />
+                    </ListItemIcon>
+                    <ListItemText className={classes.listText}>
+                      {el}
+                    </ListItemText>
+                  </MenuItem>
+                );
+              })}
+            </IconButtonMenu>
+          </div>
         </Toolbar>
       </AppBar>
     </AppBar>
