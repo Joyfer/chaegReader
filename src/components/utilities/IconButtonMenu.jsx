@@ -29,6 +29,7 @@ const IconButtonMenu = (props) => {
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
+        onClick={handleClose}
         open={open}
         onClose={handleClose}
         MenuListProps={{
