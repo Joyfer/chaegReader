@@ -14,10 +14,14 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ContentCut from "@mui/icons-material/ContentCut";
 import KeyboardArrowLeftRoundedIcon from "@mui/icons-material/KeyboardArrowLeftRounded";
 import KeyboardArrowRightRoundedIcon from "@mui/icons-material/KeyboardArrowRightRounded";
-import FontDownloadRoundedIcon from '@mui/icons-material/FontDownloadRounded';
+import FontDownloadRoundedIcon from "@mui/icons-material/FontDownloadRounded";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
+  listText: {
+    textTransform: "capitalize",
+    padding: "0 1rem"
+  },
 }));
 
 const BottomBar = ({ changePage }) => {
@@ -34,13 +38,13 @@ const BottomBar = ({ changePage }) => {
             <KeyboardArrowRightRoundedIcon />
           </IconButton>
           <IconButtonMenu>
-            {["big", "normal", "small"].map((el) => {
+            {["large", "medium", "small"].map((el) => {
               return (
                 <MenuItem key={el}>
-                  <ListItemIcon>
-                    <FontDownloadRoundedIcon fontSize="small" />
+                  <ListItemIcon style={{justifyContent: "center"}}>
+                    <FontDownloadRoundedIcon fontSize={el} />
                   </ListItemIcon>
-                  <ListItemText>{el}</ListItemText>
+                  <ListItemText className={classes.listText}>{el}</ListItemText>
                 </MenuItem>
               );
             })}
