@@ -3,7 +3,6 @@ import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import ReadPDF from "../../public/pdfReader";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -58,13 +57,7 @@ export default function Index() {
         </Button>
       </Link>
       <div className={classes.buttonPanel + " fadeIn fourth"}>
-        <Button
-          variant="text"
-          fullWidth
-          onClick={() =>
-            ReadPDF("Las_meditaciones_de_Marco_Aurelio-Marco_Aurelio", 4)
-          }
-        >
+        <Button variant="text" fullWidth>
           About
         </Button>
         <Button variant="text" fullWidth>

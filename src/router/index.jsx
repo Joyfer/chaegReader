@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Index from "../pages/Index";
 import Home from "../pages/Home";
+import Reader from "../pages/Reader"
 
 function Routes() {
   return (
@@ -14,6 +15,9 @@ function Routes() {
           </Route>
           <Route exact path="/home">
             <Home></Home>
+          </Route>
+          <Route exact path="/reader">
+            <Reader></Reader>
           </Route>
         </Switch>
       </>
