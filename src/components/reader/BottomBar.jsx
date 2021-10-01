@@ -42,9 +42,15 @@ const BottomBar = ({
   const [numberPageToGo, setNumberPageToGo] = useState(currentNumberPage);
 
   const handleNumberPageToGo = (event) => {
-    if (event.target.value != NaN) {
-      setNumberPageToGo(parseInt(event.target.value));
-    }
+    setNumberPageToGo(parseInt(event.target.value) || "");
+  };
+
+  const goToPageNumber = () => {
+    setCurrentNumberPage(numberPageToGo);
+  };
+
+  const disableGoToPageButtonIf = () => {
+    return numberPageToGo < 0 || numberPageToGo > totalNumberPages;
   };
 
   useEffect(() => {
@@ -90,7 +96,8 @@ const BottomBar = ({
                   sx={{ marginLeft: "10px" }}
                   color="primary"
                   variant="outlined"
-                  onClick={() => setCurrentNumberPage(numberPageToGo)}
+                  onClick={goToPageNumber}
+                  disabled={disableGoToPageButtonIf()}
                 >
                   Go
                 </Button>
