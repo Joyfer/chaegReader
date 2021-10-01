@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
-import FormatSizeRoundedIcon from "@mui/icons-material/FormatSizeRounded";
 
 const IconButtonMenu = (props) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -20,17 +19,25 @@ const IconButtonMenu = (props) => {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
+        style={{ color: "white" }}
       >
-        <FormatSizeRoundedIcon style={{ color: "white" }} />
+        {props.icon}
       </IconButton>
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
-        onClick={handleClose}
         open={open}
         onClose={handleClose}
         MenuListProps={{
           "aria-labelledby": "basic-button",
+        }}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "center",
+        }}
+        transformOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
         }}
       >
         {props.children}

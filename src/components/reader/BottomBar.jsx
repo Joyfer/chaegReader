@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import IconButtonMenu from "../utilities/IconButtonMenu";
 import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
@@ -13,10 +13,13 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
+import TextField from "@mui/material/TextField";
 
 import KeyboardArrowLeftRoundedIcon from "@mui/icons-material/KeyboardArrowLeftRounded";
 import KeyboardArrowRightRoundedIcon from "@mui/icons-material/KeyboardArrowRightRounded";
 import FontDownloadRoundedIcon from "@mui/icons-material/FontDownloadRounded";
+import FormatSizeRoundedIcon from "@mui/icons-material/FormatSizeRounded";
+import MoreVertRoundedIcon from "@mui/icons-material/MoreVertRounded";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -32,12 +35,22 @@ const BottomBar = ({
   window,
   totalNumberPages,
   currentNumberPage,
+  setCurrentNumberPage,
 }) => {
   const classes = useStyles();
 
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
+  const [numberPageToGo, setNumberPageToGo] = useState(currentNumberPage);
+
+  const handleNumberPageToGo = (event) => {
+    if (event.target.value != NaN) {
+      setNumberPageToGo(parseInt(event.target.value));
+    }
+  };
+
+  useEffect(() => {
+    setNumberPageToGo(currentNumberPage);
+  }, [currentNumberPage]);
+
   const trigger = useScrollTrigger({
     target: window ? window() : undefined,
   });
@@ -54,15 +67,47 @@ const BottomBar = ({
               <KeyboardArrowRightRoundedIcon />
             </IconButton>
             <Typography variant="body2">{`${currentNumberPage}/${totalNumberPages}`}</Typography>
+            <IconButtonMenu icon={<MoreVertRoundedIcon />}>
+              <div
+                style={{
+                  padding: "0 1rem",
+                  display: "flex",
+                  alignItems: "flex-end",
+                }}
+              >
+                <TextField
+                  id="GoToNumberPage"
+                  label="Number"
+                  type="number"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  variant="standard"
+                  value={numberPageToGo}
+                  onChange={handleNumberPageToGo}
+                />
+                <Button
+                  sx={{ marginLeft: "10px" }}
+                  color="primary"
+                  variant="outlined"
+                  onClick={() => setCurrentNumberPage(numberPageToGo)}
+                >
+                  Go
+                </Button>
+              </div>
+            </IconButtonMenu>
           </div>
           <div>
-            <IconButtonMenu>
+            <IconButtonMenu icon={<FormatSizeRoundedIcon />}>
               <MenuList>
                 {["large", "medium", "small"].map((el) => {
                   return (
                     <MenuItem key={el} onClick={() => changeFontSize(el)}>
                       <ListItemIcon style={{ justifyContent: "center" }}>
-                        <FontDownloadRoundedIcon fontSize={el} />
+                        <FontDownloadRoundedIcon
+                          fontSize={el}
+                          color="primary"
+                        />
                       </ListItemIcon>
                       <ListItemText className={classes.listText}>
                         {el}
