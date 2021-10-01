@@ -59,7 +59,6 @@ const Reader = () => {
     ReadPDF("Las_meditaciones_de_Marco_Aurelio-Marco_Aurelio").promise.then(
       function (pdf) {
         setTotalNumberPages(pdf.numPages);
-        console.log(currentNumberPage)
         getPageText(currentNumberPage, pdf).then(function (textPage) {
           // Set the text to variable
           setText(textPage);
