@@ -7,7 +7,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Slide from "@mui/material/Slide";
-import useScrollTrigger from '@mui/material/useScrollTrigger';
+import useScrollTrigger from "@mui/material/useScrollTrigger";
 
 import MenuItem from "@mui/material/MenuItem";
 import ListItemText from "@mui/material/ListItemText";
@@ -25,7 +25,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const BottomBar = ({ changePage, changeFontSize, window }) => {
+const BottomBar = ({
+  changePage,
+  changeFontSize,
+  window,
+  totalNumberPages,
+  currentNumberPage,
+}) => {
   const classes = useStyles();
 
   // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -35,19 +41,18 @@ const BottomBar = ({ changePage, changeFontSize, window }) => {
     target: window ? window() : undefined,
   });
 
- 
-
   return (
     <Slide appear={true} direction="up" in={!trigger}>
       <AppBar position="fixed" color="primary" sx={{ top: "auto", bottom: 0 }}>
         <Toolbar sx={{ justifyContent: "space-between" }}>
-          <div>
+          <div style={{ display: "flex", alignItems: "center" }}>
             <IconButton color="inherit" onClick={() => changePage("preview")}>
               <KeyboardArrowLeftRoundedIcon />
             </IconButton>
             <IconButton color="inherit" onClick={() => changePage("next")}>
               <KeyboardArrowRightRoundedIcon />
             </IconButton>
+            <Typography variant="body2">{`${currentNumberPage}/${totalNumberPages}`}</Typography>
           </div>
           <div>
             <IconButtonMenu>

@@ -16,17 +16,18 @@ const Reader = () => {
   const classes = useStyles();
 
   const [text, setText] = useState(undefined);
-  const [pageNumber, setPageNumber] = useState(2);
+  const [currentNumberPage, setCurrentNumberPage] = useState(2);
   const [fontSize, setFontSize] = useState(16);
+  const [totalNumberPages, setTotalNumberPages] = useState(0);
 
   const changePage = (action) => {
     switch (action) {
       case "next":
-        setPageNumber(pageNumber + 1);
+        setCurrentNumberPage(currentNumberPage + 1);
         break;
       case "preview":
-        if (pageNumber != 1) {
-          setPageNumber(pageNumber - 1);
+        if (currentNumberPage != 1) {
+          setCurrentNumberPage(currentNumberPage - 1);
         }
         break;
     }
@@ -57,9 +58,9 @@ const Reader = () => {
   useEffect(() => {
     ReadPDF("Las_meditaciones_de_Marco_Aurelio-Marco_Aurelio").promise.then(
       function (pdf) {
-        console.log("PDF loaded");
-        getPageText(pageNumber, pdf).then(function (textPage) {
-          // Show the text of the page in the console
+        setTotalNumberPages(pdf.numPages);
+        getPageText(currentNumberPage, pdf).then(function (textPage) {
+          // Set the text to variable
           setText(textPage);
         });
       },
@@ -68,16 +69,19 @@ const Reader = () => {
         console.error(reason);
       }
     );
-  }, [pageNumber]);
+  }, [currentNumberPage]);
 
   return (
     <div className={classes.root}>
       <Typography variant="body1" style={{ fontSize: fontSize + "px" }}>
         {text}
+        
       </Typography>
       <BottomBar
         changePage={changePage}
         changeFontSize={changeFontSize}
+        totalNumberPages={totalNumberPages}
+        currentNumberPage={currentNumberPage}
       ></BottomBar>
     </div>
   );
