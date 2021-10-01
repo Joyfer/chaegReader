@@ -10,6 +10,7 @@ import Slide from "@mui/material/Slide";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 
 import MenuItem from "@mui/material/MenuItem";
+import MenuList from "@mui/material/MenuList";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
 
@@ -56,18 +57,20 @@ const BottomBar = ({
           </div>
           <div>
             <IconButtonMenu>
-              {["large", "medium", "small"].map((el) => {
-                return (
-                  <MenuItem key={el} onClick={() => changeFontSize(el)}>
-                    <ListItemIcon style={{ justifyContent: "center" }}>
-                      <FontDownloadRoundedIcon fontSize={el} />
-                    </ListItemIcon>
-                    <ListItemText className={classes.listText}>
-                      {el}
-                    </ListItemText>
-                  </MenuItem>
-                );
-              })}
+              <MenuList>
+                {["large", "medium", "small"].map((el) => {
+                  return (
+                    <MenuItem key={el} onClick={() => changeFontSize(el)}>
+                      <ListItemIcon style={{ justifyContent: "center" }}>
+                        <FontDownloadRoundedIcon fontSize={el} />
+                      </ListItemIcon>
+                      <ListItemText className={classes.listText}>
+                        {el}
+                      </ListItemText>
+                    </MenuItem>
+                  );
+                })}
+              </MenuList>
             </IconButtonMenu>
           </div>
         </Toolbar>
