@@ -17,7 +17,7 @@ function Routes() {
           <Route exact path="/home">
             <Home></Home>
           </Route>
-          <Route exact path="/reader">
+          <Route path="/reader/:bookName">
             <PageReaderProvider>
               <Reader></Reader>
             </PageReaderProvider>
