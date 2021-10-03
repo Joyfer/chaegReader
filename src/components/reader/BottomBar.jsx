@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import PageReaderContext from "../../context/PageReaderContext";
 import IconButtonMenu from "../utilities/IconButtonMenu";
 import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
@@ -29,15 +30,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const BottomBar = ({
-  changePage,
-  changeFontSize,
-  window,
-  totalNumberPages,
-  currentNumberPage,
-  setCurrentNumberPage,
-}) => {
+const BottomBar = ({window}) => {
   const classes = useStyles();
+  const {
+    changePage,
+    changeFontSize,
+    totalNumberPages,
+    currentNumberPage,
+    setCurrentNumberPage,
+  } = useContext(PageReaderContext);
 
   const [numberPageToGo, setNumberPageToGo] = useState(currentNumberPage);
 

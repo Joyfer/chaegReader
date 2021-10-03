@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { PageReaderProvider } from "../context/PageReaderContext";
 
 import Index from "../pages/Index";
 import Home from "../pages/Home";
-import Reader from "../pages/Reader"
+import Reader from "../pages/Reader";
 
 function Routes() {
   return (
@@ -17,7 +18,9 @@ function Routes() {
             <Home></Home>
           </Route>
           <Route exact path="/reader">
-            <Reader></Reader>
+            <PageReaderProvider>
+              <Reader></Reader>
+            </PageReaderProvider>
           </Route>
         </Switch>
       </>
