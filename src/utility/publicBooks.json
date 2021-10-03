@@ -1,0 +1,25 @@
+{
+  "publicBooks": [
+    {
+      "id": "1",
+      "title": "Meditaciones",
+      "autor": "Marco Aurelio",
+      "pdfName": "Las_meditaciones_de_Marco_Aurelio-Marco_Aurelio",
+      "image": "https://www.elejandria.com/covers/Las_meditaciones_de_Marco_Aurelio-Marco_Aurelio-md.png"
+    },
+    {
+      "id": "2",
+      "title": "El arte de la guerra",
+      "autor": "Sun Tzu",
+      "pdfName": "El_arte_de_la_guerra-Sun_Tzu",
+      "image": "https://www.elejandria.com/covers/El_arte_de_la_guerra-Sun_Tzu-md.png"
+    },
+    {
+      "id": "3",
+      "title": "La divina comedia",
+      "autor": "Dante Alighieri",
+      "pdfName": "La_divina_comedia-Dante_Alighieri",
+      "image": "https://www.elejandria.com/covers/La_divina_comedia-Dante_Alighieri-md.png"
+    }
+  ]
+}

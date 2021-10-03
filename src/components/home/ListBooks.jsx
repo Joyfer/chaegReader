@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
 import CoverPage from "../books/CoverPage";
+import publicBooks from "../../utility/publicBooks.json";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -33,8 +34,8 @@ const ListBooks = () => {
     <>
       <Typography variant="h5">Public books</Typography>
       <div className={classes.list} ref={ListBookDiv}>
-        {[1, 2, 3, 4, 5, 6, 7].map((el) => (
-          <CoverPage key={el}></CoverPage>
+        {publicBooks.publicBooks.map((el) => (
+          <CoverPage key={el.id} bookData={el}></CoverPage>
         ))}
       </div>
       {/* Div helper for spacing absolute list div */}
