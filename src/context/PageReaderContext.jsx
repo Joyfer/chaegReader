@@ -45,6 +45,7 @@ const PageReaderProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
+    setText(undefined)
     ReadPDF("Las_meditaciones_de_Marco_Aurelio-Marco_Aurelio").promise.then(
       function (pdf) {
         setTotalNumberPages(pdf.numPages);
