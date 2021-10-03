@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
+import Zoom from "@mui/material/Zoom";
 
 const IconButtonMenu = (props) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -28,6 +29,7 @@ const IconButtonMenu = (props) => {
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
+        TransitionComponent={Zoom}
         MenuListProps={{
           "aria-labelledby": "basic-button",
         }}
