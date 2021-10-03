@@ -22,7 +22,10 @@ const Home = () => {
       <div className={classes.root}>
         {[1].map((el) => (
           <div key={el} className={classes.list}>
-            <Link to="/reader" className={classes.link + " fadeIn fourth"}>
+            <Link
+              to="/reader/Las_meditaciones_de_Marco_Aurelio-Marco_Aurelio"
+              className={classes.link + " fadeIn fourth"}
+            >
               <ListBooks></ListBooks>
             </Link>
           </div>

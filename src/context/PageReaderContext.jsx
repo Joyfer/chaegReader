@@ -31,8 +31,9 @@ const PageReaderProvider = ({ children }) => {
 
   // Change page when state: currentNumberPage changes
   useEffect(() => {
-    setText(undefined);
     if (currentNumberPage != undefined) {
+      scrollTo(0, 0);
+      setText(undefined);
       ReadPDF(bookName).promise.then(
         function (pdf) {
           setTotalNumberPages(pdf.numPages);
