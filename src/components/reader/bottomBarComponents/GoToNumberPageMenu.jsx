@@ -7,7 +7,11 @@ import Button from "@mui/material/Button";
 import MoreVertRoundedIcon from "@mui/icons-material/MoreVertRounded";
 
 const GoToNumberPageMenu = () => {
-  const { setCurrentNumberPage, currentNumberPage, totalNumberPages } = useContext(PageReaderContext);
+  const {
+    setCurrentNumberPage,
+    currentNumberPage,
+    totalNumberPages,
+  } = useContext(PageReaderContext);
 
   const [numberPageToGo, setNumberPageToGo] = useState(currentNumberPage);
 
@@ -28,38 +32,36 @@ const GoToNumberPageMenu = () => {
   }, [currentNumberPage]);
 
   return (
-    <div>
-      <IconButtonMenu icon={<MoreVertRoundedIcon />}>
-        <div
-          style={{
-            padding: "0 1rem",
-            display: "flex",
-            alignItems: "flex-end",
+    <IconButtonMenu icon={<MoreVertRoundedIcon />}>
+      <div
+        style={{
+          padding: "0 1rem",
+          display: "flex",
+          alignItems: "flex-end",
+        }}
+      >
+        <TextField
+          id="GoToNumberPage"
+          label="Number"
+          type="number"
+          InputLabelProps={{
+            shrink: true,
           }}
+          variant="standard"
+          value={numberPageToGo}
+          onChange={handleNumberPageToGo}
+        />
+        <Button
+          sx={{ marginLeft: "10px" }}
+          color="primary"
+          variant="outlined"
+          onClick={goToPageNumber}
+          disabled={disableGoToPageButtonIf()}
         >
-          <TextField
-            id="GoToNumberPage"
-            label="Number"
-            type="number"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            variant="standard"
-            value={numberPageToGo}
-            onChange={handleNumberPageToGo}
-          />
-          <Button
-            sx={{ marginLeft: "10px" }}
-            color="primary"
-            variant="outlined"
-            onClick={goToPageNumber}
-            disabled={disableGoToPageButtonIf()}
-          >
-            Go
-          </Button>
-        </div>
-      </IconButtonMenu>
-    </div>
+          Go
+        </Button>
+      </div>
+    </IconButtonMenu>
   );
 };
 
