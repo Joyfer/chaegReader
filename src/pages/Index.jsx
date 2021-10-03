@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     height: "100vh",
+    overflowX: "hidden"
   },
   image: {
     width: "90%",
