@@ -1,10 +1,9 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext } from "react";
 import PageReaderContext from "../context/PageReaderContext";
 
 import BottomBar from "../components/reader/BottomBar";
 import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 
 const useStyles = makeStyles((theme) => ({
   root: {
