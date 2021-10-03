@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import { ReadPDF, getPageText } from "../utility/pdfReader";
+import { useParams } from "react-router-dom";
 
 const PageReaderContext = createContext();
 
@@ -8,38 +9,39 @@ const PageReaderProvider = ({ children }) => {
   const [currentNumberPage, setCurrentNumberPage] = useState(undefined);
   const [fontSize, setFontSize] = useState(16);
   const [totalNumberPages, setTotalNumberPages] = useState(0);
-  const [bookURL, setBookURL] = useState(undefined);
+
+  let { bookName } = useParams();
 
   // When page load for first time
   useEffect(() => {
     // Loaded via <script> tag, create shortcut to access PDF.js exports.
     const PDFJS = window["pdfjs-dist/build/pdf"];
 
-    setBookURL("Las_meditaciones_de_Marco_Aurelio-Marco_Aurelio");
-
     // Specify the path to the worker
     PDFJS.GlobalWorkerOptions.workerSrc = "/js/pdf.worker.js";
 
     // Look if there is number page saved on Local Storage
-    let savedNumberPage = localStorage.getItem("savedNumberPage");
-    console.log(savedNumberPage);
+    let savedNumberPage = localStorage.getItem(`savedNumberPage:${bookName}`);
     if (savedNumberPage != null) {
       setCurrentNumberPage(parseInt(savedNumberPage));
     } else {
-      setCurrentNumberPage(parseInt(1));
+      setCurrentNumberPage(1);
     }
   }, []);
 
   // Change page when state: currentNumberPage changes
   useEffect(() => {
     setText(undefined);
-    if (bookURL != undefined) {
-      ReadPDF(bookURL).promise.then(
+    if (currentNumberPage != undefined) {
+      ReadPDF(bookName).promise.then(
         function (pdf) {
           setTotalNumberPages(pdf.numPages);
           getPageText(currentNumberPage, pdf).then(function (textPage) {
             // Save URL and Current page to local storage
-            localStorage.setItem("savedNumberPage", currentNumberPage);
+            localStorage.setItem(
+              `savedNumberPage:${bookName}`,
+              currentNumberPage
+            );
             // Set th text to variable
             setText(textPage);
           });
