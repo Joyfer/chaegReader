@@ -5,6 +5,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
 import MoreVertRoundedIcon from "@mui/icons-material/MoreVertRounded";
+import MenuBookRoundedIcon from "@mui/icons-material/MenuBookRounded";
 
 const GoToNumberPageMenu = () => {
   const {
@@ -40,6 +41,7 @@ const GoToNumberPageMenu = () => {
           alignItems: "flex-end",
         }}
       >
+        <MenuBookRoundedIcon fontSize="large" color="primary" />
         <TextField
           id="GoToNumberPage"
           label="Number"
@@ -50,9 +52,9 @@ const GoToNumberPageMenu = () => {
           variant="standard"
           value={numberPageToGo}
           onChange={handleNumberPageToGo}
+          sx={{ width: "80px", margin: "0 1rem" }}
         />
         <Button
-          sx={{ marginLeft: "10px" }}
           color="primary"
           variant="outlined"
           onClick={goToPageNumber}
