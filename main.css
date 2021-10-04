@@ -1,6 +1,6 @@
 /* ANIMATIONS */
 
-/* Simple CSS3 Fade-in-down Animation */
+/* Simple CSS3 Fade-in-right Animation */
 .fadeInRight {
   -webkit-animation-name: fadeInRight;
   animation-name: fadeInRight;
@@ -37,6 +37,42 @@
   100% {
     -webkit-transform: none;
     transform: none;
+  }
+}
+
+/* Simple CSS3 Fade-in-right Animation */
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInLeft {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: none;
+    transform: none;
+    opacity: 1;
   }
 }
 
@@ -103,4 +139,29 @@
   -webkit-animation-delay: 1.8s;
   -moz-animation-delay: 1.8s;
   animation-delay: 1.8s;
+}
+
+.slide-enter,
+.slide-exit {
+  transition: transform 800ms ease-out;
+}
+
+.slide-enter {
+  transform: translateX(100%);
+}
+
+.slide-enter.slide-enter-active {
+  transform: translateX(0%);
+}
+
+.slide-exit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateX(0%);
+}
+
+.slide-exit-active {
+  transform: translateX(-100%);
 }

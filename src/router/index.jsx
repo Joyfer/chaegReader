@@ -1,16 +1,22 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  withRouter,
+} from "react-router-dom";
 import { PageReaderProvider } from "../context/PageReaderContext";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import Index from "../pages/Index";
 import Home from "../pages/Home";
 import Reader from "../pages/Reader";
 
-function Routes() {
+const Routes = withRouter(({ location }) => {
   return (
-    <Router>
-      <>
-        <Switch>
+    <TransitionGroup>
+      <CSSTransition key={location.key} classNames="slide" timeout={1000}>
+        <Switch location={location}>
           <Route exact path="/">
             <Index></Index>
           </Route>
@@ -23,9 +29,9 @@ function Routes() {
             </PageReaderProvider>
           </Route>
         </Switch>
-      </>
-    </Router>
+      </CSSTransition>
+    </TransitionGroup>
   );
-}
+});
 
 export default Routes;

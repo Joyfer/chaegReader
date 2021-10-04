@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Routes from "./router/index";
 import Container from "@mui/material/Container";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
@@ -42,7 +43,9 @@ function App() {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Routes />
+        <Router>
+          <Routes />
+        </Router>
       </ThemeProvider>
     </Container>
   );
