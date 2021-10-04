@@ -26,7 +26,7 @@ const BookTextPage = () => {
         <Typography
           className="fadeIn first"
           variant="body1"
-          style={{ fontSize: fontSize + "px" }}
+          sx={{ fontSize: fontSize + "px", lineHeight: "1.8" }}
         >
           {text === ""
             ? "Nothing to preview, maybe PDF page is an image."
