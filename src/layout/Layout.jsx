@@ -15,7 +15,7 @@ const Layout = (props) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Typography variant="h4" className={classes.header + " fadeIn first"}>
+      <Typography variant="h4" className={classes.header + " fadeInLeft"}>
         책Reader
       </Typography>
       <>{props.children}</>

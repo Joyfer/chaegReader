@@ -32,8 +32,10 @@ const ListBooks = () => {
 
   return (
     <>
-      <Typography variant="h5">Public books</Typography>
-      <div className={classes.list} ref={ListBookDiv}>
+      <Typography variant="h5" className="fadeIn third">
+        Public books
+      </Typography>
+      <div className={classes.list + " fadeIn fourth"} ref={ListBookDiv}>
         {publicBooks.publicBooks.map((el) => (
           <CoverPage key={el.id} bookData={el}></CoverPage>
         ))}
