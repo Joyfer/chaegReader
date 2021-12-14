@@ -1,8 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
 import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
-import CoverPage from "../books/CoverPage";
+import CoverPage from "./CoverPage";
 import publicBooks from "../../utility/publicBooks.json";
+
+import ButtonMenu from "./buttonMenu/ButtonMenu";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -16,6 +18,12 @@ const useStyles = makeStyles((theme) => ({
     "&::-webkit-scrollbar": {
       display: "none",
     },
+  },
+  bookCover: {
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
 }));
 
@@ -37,7 +45,10 @@ const ListBooks = () => {
       </Typography>
       <div className={classes.list + " fadeIn fourth"} ref={ListBookDiv}>
         {publicBooks.publicBooks.map((el) => (
-          <CoverPage key={el.id} bookData={el}></CoverPage>
+          <div key={el.id} className={classes.bookCover}>
+            <CoverPage bookData={el}></CoverPage>
+            <ButtonMenu />
+          </div>
         ))}
       </div>
       {/* Div helper for spacing absolute list div */}

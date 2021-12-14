@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
-import ListBooks from "../components/home/ListBooks";
+import ListBooks from "../components/books/ListBooks";
 import Layout from "../layout/Layout";
 
 const useStyles = makeStyles((theme) => ({
